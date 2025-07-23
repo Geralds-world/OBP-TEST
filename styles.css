@@ -148,6 +148,10 @@ body {
   justify-content: space-between;
 }
 
+.intro-bottom {
+    width: 400px;
+}
+
 .intro-text h1 {
   font-size: 2rem;
   font-weight: 700;
