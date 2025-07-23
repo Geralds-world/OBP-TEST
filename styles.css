@@ -384,8 +384,7 @@ body {
 
 
 .buy-section {
-  background: url('/images/buy-from-us.png') no-repeat center center;
-  
+  background: url('/OBP-TEST/images/buy-us.png') no-repeat center center;
   background-size: cover;
   padding: 100px 40px;
   position: relative;
@@ -540,7 +539,8 @@ body {
   padding: 14px;
   border: none;
   border-radius: 8px;
-  background: #00bcd4;
+  background-color: #1f3b2ef6;
+  border: 2px solid #b6fba1;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -573,7 +573,8 @@ body {
 .map-link {
   color: white;
   text-decoration: none;
-  background-color: #00bcd4;
+  background-color: #1f3b2ef6;
+  border: 2px solid #b6fba1;
   padding: 14px;
   font-size: 14px;
   border-radius: 8px;
