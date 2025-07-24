@@ -1,5 +1,6 @@
-
-
+html {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -62,6 +63,10 @@ body {
   gap: 15px;
   flex-wrap: wrap;
 }
+.nav-links a:hover {
+  color: #c7ffab;
+}
+
 
 .nav-links a {
   text-decoration: none;
@@ -582,143 +587,4 @@ body {
   align-self: center; 
   width: 100%;
   text-align: center;
-}
-
-
-
-
-
-
-.executive-section {
-  background: #ebfaf7;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.executive-intro h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-.executive-intro p {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  color: #555;
-}
-
-.executive-intro ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 40px;
-  max-width: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.executive-intro ul li {
-  background: #00bcd4;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.95em;
-}
-
-.executive-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.executive-card {
-  margin-top: 40px;
-  padding: 20px;
-  border-radius: 90px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-  width: 250px;
-  transition: transform 0.3s ease;
-}
-
-.executive-card:hover {
-  transform: translateY(-8px);
-}
-
-.executive-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.executive-card h3 {
-  margin: 10px 0 5px;
-}
-
-.executive-card .title {
-  color: #777;
-  margin-bottom: 15px;
-}
-
-.executive-card button {
-  background: #00bcd4;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.executive-card button:hover {
-  background: #0097a7;
-}
-
-/* Modal Styling */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-  background: white;
-  margin: 10% auto;
-  padding: 30px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  position: relative;
-}
-
-.modal-content img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-
-.modal-content h3 {
-  margin-bottom: 5px;
-}
-
-.modal-content .title {
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.close {
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #888;
 }
