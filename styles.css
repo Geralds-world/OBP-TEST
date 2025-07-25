@@ -1,5 +1,6 @@
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -8,6 +9,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   color: #1e1e1e;
+
 }
 
 .name {
@@ -63,8 +65,56 @@ body {
   gap: 15px;
   flex-wrap: wrap;
 }
+
+.burger-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid #abf1ff;
+  display: block;
+  font-weight: bold;
+  transition: 
+    color 0.2s,
+    background 0.2s,
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.burger-nav a:hover {
+  color: #abf1ff;
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.burger-nav a:last-child {
+  border-bottom: none;
+}
+
+.burger-nav {
+  display: none;
+  flex-direction: column;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: end;
+  text-align: end;
+  background-color: rgba(131, 142, 132, 0.805);
+  margin-top: 10px;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  right: 0;   
+  left: auto; 
+  z-index: 999;
+}
+
+/* This line makes the burger menu appear when nav-open is added, on ALL screen sizes */
+.burger-nav.nav-open {
+  display: flex;
+}
 .nav-links a:hover {
-  color: #c7ffab;
+  color: #abf1ff;
+    transform: scale(1.08);
+  z-index: 2;
 }
 
 
@@ -72,11 +122,50 @@ body {
   text-decoration: none;
   color: white;
   font-weight: bold;
+    transition: 
+    color 0.2s,
+    background 0.2s,
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links a:first-child {
-  color: #c7ffab;
+  color: #abf1ff;
 }
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(122, 135, 150, 0.95);
+    margin-top: 10px;
+    padding: 10px 0;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-icons {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+
 
 .hamburger {
   display: flex;
@@ -119,6 +208,67 @@ body {
 .globe::before { content: "🌐"; }
 .location::before { content: "📍"; }
 
+
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.follow-banner {
+  max-width: 900px;
+  background-color: #1b3530;
+  border-radius: 14px;
+  background-size: 400% 400%;
+  animation: gradientMove 14s ease infinite;
+  color: #1a1a1a;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.follow-banner h2 {
+  color: white;
+  text-shadow: 2px 2px 2px #113311;
+  margin: 0;
+  font-size: 1.4em;
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+.twitter-button {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #32649988;;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.twitter-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.25);
+}
+
+
+
+
+
 /* Main layout */
 .main-content {
   display: flex;
@@ -129,6 +279,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 700px;
+  padding-top: 180px;
 }
 
 .intro-text {
@@ -141,7 +292,7 @@ body {
   padding: 30px;
   color: white;
   border-radius: 20px;
-  background: rgba(1, 9, 3, 0.205); 
+    background-color: rgba(131, 142, 132, 0.43);
   backdrop-filter: blur(2px); 
   -webkit-backdrop-filter: blur(2px); 
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -179,7 +330,6 @@ body {
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
-    padding-top: 120px;
   }
 
   .intro-text {
