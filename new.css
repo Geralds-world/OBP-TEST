@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: #f8f8f8;
+  background-image: url(/images/obp\ hero.png);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px; /* default open on desktop */
+  background-image: url(/images/cornered-stairs\ \(1\).png);
+  background-position: center;
+  background-size: cover;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  margin-left: 5px;
+  margin-top: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 6px solid rgba(33, 60, 60, 0.79);
+  border-bottom: none;
+}
+
+.twitter-btn {
+    bottom: 20px;
+    width: 100%;
+}
+
+.twitter-btn a {
+    display: inline-flex;
+    background-color: #1DA1F2; /* Twitter blue */
+    color: white;
+    padding: 10px 15px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.twitter-btn a i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Hover effect */
+.twitter-btn a:hover {
+    background-color: #0d95e8;
+    transform: translateY(-2px);
+}
+
+
+.logo {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 1; /* always visible on desktop */
+}
+
+.nav {
+  list-style: none;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nav li {
+  position: relative;
+  width: 100%;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav a i {
+  font-size: 20px;
+  min-width: 40px;
+  color: white;
+}
+
+.nav a span {
+  opacity: 1; /* always visible on desktop */
+}
+
+.nav a:hover {
+  background: rgb(26, 78, 50);
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.dropdown-menu {
+  list-style: none;
+  display: none;
+  padding-left: 40px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+    background-color: rgba(63, 61, 61, 0.938);
+    margin-left: 10px;
+}
+
+.dropdown-menu li a {
+  font-size: 14px;
+  color: white;
+}
+
+.dropdown-menu li a:hover {
+  color: white;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 3.5em;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  margin-bottom: 10px;
+  position: relative;
+  isolation: isolate;
+  text-decoration: dotted underline;
+  text-underline-offset: 15px;
+  text-decoration-color: aqua;
+}
+
+header h1::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(0, 255, 120, 0.00) 43%,
+    rgba(0, 255, 120, 0.85) 50%,
+    rgba(0, 255, 120, 0.00) 57%,
+    transparent 58%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  background-position: -150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 120, 0.35));
+  animation: obp-sweep 12s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes obp-sweep {
+  0%, 72%   { background-position: -150% 0; opacity: 0; }
+  78%       { opacity: 1; }
+  100%      { background-position: 150% 0;  opacity: 0; }
+}
+
+header p {
+  font-size: 16px;
+  margin-top: 5px;
+  color: #444;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 900px;
+  max-height: 800px;
+  object-fit: cover;
+  margin-top: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border: 4px solid rgb(255, 255, 255);
+}
+
+/* Responsive: Mobile view overlays sidebar */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 120px; /* collapsed width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000; /* above main content */
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .logo h2,
+  .nav a span {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .sidebar:hover {
+    width: 260px; /* expand on hover */
+  }
+
+  .sidebar:hover .logo h2,
+  .sidebar:hover a span {
+    opacity: 1;
+  }
+
+  /* main content stays centered, no margin shift */
+  .main-content {
+    margin-left: 0;
+  }
+}
