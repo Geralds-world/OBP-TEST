@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBP Cattle Range</title>
+  <link rel="stylesheet" href="/OBP-TEST/cattle.css">
+</head>
+<body>
+
+<!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/OBP-TEST/index.html" class="nav-btn">Return Home</a>
+    <div class="dropdown">
+      <button class="nav-btn">View Other Product Pages ▾</button>
+      <div class="dropdown-content">
+        <p>Other product pages are currently unavailable due to this being a demo site.</p>
+      </div>
+    </div>
+  </nav>
+
+  <header class="site-header">
+    <h1>OBP Cattle Range</h1>
+    <p class="subtitle">Excellence in Animal Health</p>
+  </header>
+
+  <section class="search-filter">
+    <input type="text" placeholder="Search products..." class="search-bar">
+    <div class="filters">
+      <button class="filter-btn active">All needs</button>
+      <button class="filter-btn">Protect</button>
+      <button class="filter-btn">Regenerates</button>
+      <button class="filter-btn">Revitalizes</button>
+    </div>
+  </section>
+
+  <main class="product-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="https://www.obpvaccines.co.za/~obpvacc1/Animal-images/Cattle/product-c-3.png" alt="Campylobacter Vaccine">
+      <h3>Campylobacter</h3>
+      <p class="sub-name">(Vibro) Fetus Vaccine</p>
+      <p class="short-desc">For the prophylactic immunisation of heifers and bulls against bovine vibriosis.</p>
+      <button class="toggle-btn" onclick="toggleContent(this)">Read More</button>
+      <div class="extra-content">
+        <p><strong>Composition:</strong> An oil - emulsion of formalin-inactivated Campylobacter fetus veneralis and Campylobacter fetus intestinalis bacteria.</p>
+        <p><strong>Dosage:</strong> Heifers: 2 ml subcutaneously. Bulls: 5 ml subcutaneously.</p>
+        <button class="toggle-code" onclick="toggleCodes(this)">View Product Codes</button>
+        <div class="product-codes">
+          <p>Reg num: G 0055 (Act 36/1947)</p>
+          <p>Namibia code: V01/24.4/627</p>
+          <p>Product code: 1282</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="https://www.obpvaccines.co.za/~obpvacc1/Animal-images/Cattle/product-c-4.png" alt="Chlamysure Vaccine">
+      <h3>Chlamysure</h3>
+      <p class="sub-name">(Enzootic Abortion Vaccine)</p>
+      <p class="short-desc">For the prophylactic immunisation of cattle, sheep and goats against enzootic abortion.</p>
+      <button class="toggle-btn" onclick="toggleContent(this)">Read More</button>
+      <div class="extra-content">
+        <p><strong>Composition:</strong> Oil-adjuvanted emulsion of formal inactivated cell-adapted cultures of Chlamydophila abortus.</p>
+        <p><strong>Dosage:</strong> Cattle: 2 ml intramuscularly. Sheep & goats: 1 ml subcutaneously.</p>
+        <button class="toggle-code" onclick="toggleCodes(this)">View Product Codes</button>
+        <div class="product-codes">
+          <p>Reg num: G 3862 (Act 36/1947)</p>
+          <p>Namibia code: V10/24.4/1184</p>
+          <p>Product code: 2192</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="https://www.obpvaccines.co.za/~obpvacc1/Animal-images/Cattle/product-c-5.png" alt="Clostridium Septicum Vaccine">
+      <h3>Clostridium Septicum</h3>
+      <p class="sub-name">(Vaccine)</p>
+      <p class="short-desc">For the immunisation of sheep, goats and cattle against CI. septicum infection.</p>
+      <button class="toggle-btn" onclick="toggleContent(this)">Read More</button>
+      <div class="extra-content">
+        <p><strong>Composition:</strong> Adsorbed anaculture of Clostridium septicum.</p>
+        <p><strong>Dosage:</strong> Sheep & goats: 2 ml subcutaneously. Cattle: 5 ml subcutaneously.</p>
+        <button class="toggle-code" onclick="toggleCodes(this)">View Product Codes</button>
+        <div class="product-codes">
+          <p>Reg num: G 0133 (Act 36/1947)</p>
+          <p>Namibia code: V01/24.4/143</p>
+          <p>Product code: 1256</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleContent(btn) {
+      const content = btn.nextElementSibling;
+      content.classList.toggle("show");
+      btn.textContent = content.classList.contains("show") ? "See Less" : "Read More";
+    }
+
+    function toggleCodes(btn) {
+      const codes = btn.nextElementSibling;
+      codes.classList.toggle("show");
+      btn.textContent = codes.classList.contains("show") ? "Hide Codes" : "View Product Codes";
+    }
+  </script>
+</body>
+</html>
