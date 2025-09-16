@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buy From Us — OBP</title>
+  <style>
+    :root{
+      --bg:#f6fbfb;
+      --deep:#055f71;       /* primary blue used elsewhere */
+      --accent:#8EA53C;     /* green accent */
+      --mint:#c7ffab;
+      --card:#ffffff;
+      --muted:#5b6b6b;
+      --glass: rgba(255,255,255,0.85);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#f8fcfd 0%,#eef6f6 60%);
+      color:#052e33;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:28px;
+    }
+
+    /* top small header */
+    .topbar{
+      max-width:1100px;
+      margin:0 auto 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .topbar .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .topbar .brand .logo{
+      width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--deep),#0b7d8a);
+      box-shadow: 0 6px 18px rgba(5,95,113,0.12);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
+      font-size:18px;
+    }
+    .topbar a.return{
+      text-decoration:none;
+      color:var(--deep);
+      background: rgba(5,95,113,0.06);
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid rgba(5,95,113,0.06);
+      font-weight:700;
+      display:inline-flex;align-items:center;gap:10px;
+    }
+
+    /* main header */
+    .hero{
+      max-width:1100px;
+      margin:0 auto 18px;
+      background: linear-gradient(90deg, rgba(5,95,113,0.98), rgba(8,94,107,0.95));
+      color:#fff;
+      padding:28px 26px;
+      border-radius:12px;
+      box-shadow: 0 12px 40px rgba(5,95,113,0.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .hero h1{
+      font-size:clamp(20px,3.6vw,28px);
+      margin:0;
+      letter-spacing:-0.3px;
+    }
+    .hero p{ margin:6px 0 0 0; opacity:0.95; font-size:0.95rem; }
+
+    /* content layout */
+    .container{
+      max-width:1100px;
+      margin: 22px auto 80px;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      align-items:start;
+    }
+
+    /* main card */
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:22px;
+      box-shadow: 0 8px 28px rgba(10,30,30,0.06);
+      border:1px solid rgba(3,50,56,0.04);
+    }
+
+    .columns{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(235,250,245,0.9), rgba(255,255,255,0.99));
+      border-radius:10px;
+      padding:14px;
+      min-height:180px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      border:1px solid rgba(3,80,86,0.04);
+    }
+
+    .panel h3{ margin:0;font-size:1.02rem;color:var(--deep) }
+    .panel ol{ margin:8px 0 0 18px; color:#234; }
+    .panel li{ margin:8px 0; font-size:0.98rem; }
+
+    .panel .cta{
+      margin-top:auto;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      cursor:pointer;
+      border:1px solid rgba(3,50,56,0.06);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg,var(--deep),#0b7d8a);
+      color:#fff;
+      box-shadow: 0 8px 22px rgba(5,95,113,0.12);
+    }
+    .btn.ghost{
+      background:transparent;
+      color:var(--deep);
+      border:1px solid rgba(5,95,113,0.08);
+    }
+
+    /* right column cards */
+    .side .info{
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .info .k{ font-weight:800;color:var(--accent); }
+    .download{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;
+      background:linear-gradient(180deg, rgba(142,165,60,0.06), rgba(199,255,171,0.02));
+      color:var(--deep);
+      text-decoration:none;
+      border:1px solid rgba(142,165,60,0.06);
+      font-weight:700;
+    }
+
+    .note{
+      margin-top:10px;color:var(--muted);font-size:0.95rem;
+    }
+
+    /* dropdown mock in right card (visual only) */
+    .dropdown-note{
+      background:linear-gradient(180deg, rgba(5,95,113,0.04), rgba(5,95,113,0.02));
+      padding:10px;border-radius:8px;border:1px solid rgba(5,95,113,0.04);
+      color:#04383e;font-weight:700;
+    }
+
+    footer{
+      max-width:1100px;margin:28px auto 80px;text-align:center;color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* responsive */
+    @media (max-width:980px){
+      .container{ grid-template-columns: 1fr; }
+      .columns{ grid-template-columns:1fr; }
+      .hero{flex-direction:column;align-items:flex-start;gap:10px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar" role="navigation" aria-label="Top navigation">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">OBP</div>
+      <div>
+        <div style="font-weight:800;color:#07343a;">Onderstepoort Biological Products</div>
+        <div style="font-size:0.85rem;color:var(--muted)">Trusted animal health solutions</div>
+      </div>
+    </div>
+
+    <a class="return" href="/OBP-TEST/index.html" title="Return to home">← Return to Home</a>
+  </div>
+
+  <main class="container" role="main">
+
+    <section class="card" aria-labelledby="how-to-buy">
+      <h2 id="how-to-buy" style="font-size:1.2rem;color:var(--deep);">How to purchase</h2>
+
+      <div class="columns" aria-hidden="false">
+
+        <div class="panel" aria-labelledby="new-cust">
+          <h3 id="new-cust">New Customers</h3>
+          <ol>
+            <li>Access our Product page and identify your needs.</li>
+            <li>Animal types are categorised and listed alphabetically for easy browsing.</li>
+            <li>Register an individual or company account via the Buyer’s Portal.</li>
+            <li>Contact Sales or Customer Service for stock, schedules or enquiries.</li>
+            <li>Place an order by phone <br> <strong>+27 12 522 1500</strong> or email <strong>sales@obpvaccines.co.za</strong>.</li>
+            <li>You will be notified of delivery procedures and dates.</li>
+          </ol>
+
+          <div class="cta">
+            <a class="btn primary" href="#" title="Register / Portal">Register / Portal</a>
+            <a class="btn ghost" href="mailto:sales@obpvaccines.co.za">Email Sales</a>
+          </div>
+        </div>
+
+        <div class="panel" aria-labelledby="existing-cust">
+          <h3 id="existing-cust">Existing Customers</h3>
+          <ol>
+            <li>Select your products and quantities.</li>
+            <li>Log in to your account via the Buyer’s Portal.</li>
+            <li>Verify stock availability with our Sales team.</li>
+            <li>Place an order by phone <br> <strong>+27 12 522 1500</strong> or email.</li>
+            <li>You will be notified of delivery procedures and dates.</li>
+            <li>Download the immunisation schedule below.</li>
+          </ol>
+
+          <div class="cta">
+            <a class="btn primary" href="#" title="Login to Portal">Login to Portal</a>
+            <a class="download" href="/OBP-TEST/docs/immunisation-schedule.pdf" download>Download immunisation schedule</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="card info-card">
+        <div class="info">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div class="k">Need Assistance?</div>
+              <div style="font-size:0.95rem;color:var(--muted)">Sales & Customer Service</div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <div><strong>Phone</strong><br><a href="tel:+27125221500" style="color:var(--deep);text-decoration:none;font-weight:700">+27 12 522 1500</a></div>
+            <div><strong>Email</strong><br><a href="mailto:sales@obpvaccines.co.za" style="color:var(--deep);text-decoration:none;font-weight:700">sales@obpvaccines.co.za</a></div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer>
+    © Onderstepoort Biological Products — For enquiries
