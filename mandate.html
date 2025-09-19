@@ -92,6 +92,35 @@
       max-width:48ch;
     }
 
+        .hero-actions{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:12px;
+      min-width:140px;
+    }
+
+    .hero-home-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      text-decoration:none;
+      border-radius:10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight:700;
+      box-shadow: 0 6px 16px rgba(3,50,56,0.12);
+      transition: transform .12s ease, background .12s ease;
+    }
+    .hero-home-btn:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.12);
+    }
+
+
+
     /* main content wrapper */
     .wrap{
       max-width:1100px;
@@ -221,8 +250,13 @@
         <p class="hero-sub">We develop, manufacture and distribute veterinary vaccines to protect animal health, livelihoods and food security.</p>
       </div>
 
-      <div style="width:280px;">
-        <div style="background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 18px rgba(0,0,0,0.08);">
+      <!-- new: actions area with Return to Home button -->
+      <div style="width:280px; display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
+        <div class="hero-actions" aria-hidden="false">
+          <a class="hero-home-btn" href="/OBP-TEST/index.html" title="Return to Home">← Return to Home</a>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 18px rgba(0,0,0,0.08);width:100%;">
           <strong style="display:block;color:#eaffea;">Quick facts</strong>
           <small style="color:#dfeee0;display:block;margin-top:8px;">Founded: 2000</small>
           <small style="color:#dfeee0;display:block;">Distribution Regions: Africa • Middle East • Europe</small>
