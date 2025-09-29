@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OBP — Procurement & RFQ Submissions</title>
+
+  <style>
+    :root{
+      --cyan-1: #8ccdd5;   /* primary soft cyan */
+      --cyan-2: #c6e9ed;   /* pale cyan */
+      --teal:   #3ba9ba;   /* accent teal */
+      --deep-1: #051418;   /* very dark */
+      --deep-2: #055f71;   /* deep blue-teal */
+      --lime:   #c1ff72;   /* lime accent */
+      --card:   #ffffff;
+      --muted:  #5b6b6b;
+      --glass:  rgba(255,255,255,0.06);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--cyan-2) 0%, #f6fbfb 40%); color:var(--deep-1);
+      -webkit-font-smoothing:antialiased}
+
+    /* Hero (slanted bottom) */
+    .hero{
+      position:relative;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:44px 20px;
+      background-color: var(--deep-2); /* fallback */
+      background-image:
+        linear-gradient(120deg, rgba(5,95,113,0.88), rgba(59,169,186,0.12)),
+        url('/OBP-TEST/images/meeting.png');
+      background-position:center;
+      background-size:cover;
+      clip-path: polygon(0 0,100% 0,100% 78%,0 100%);
+      box-shadow:0 10px 30px rgba(2,30,34,0.14);
+      overflow:hidden;
+      color:#fff;
+    }
+    .hero-inner{max-width:1100px;width:100%;display:flex;gap:24px;align-items:center;justify-content:space-between}
+    .hero-title h1{font-size:clamp(22px,3.8vw,36px);line-height:1;letter-spacing:-0.4px;margin-bottom:6px; color: white;}
+    .hero-sub{opacity:0.95;font-size:clamp(13px,1.6vw,16px);max-width:48ch;color: var(--cyan-2)}
+
+    /* home button in hero */
+    .hero-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+    .hero-home-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      color:#fff;border-radius:10px;text-decoration:none;font-weight:700;
+      border:1px solid rgba(255,255,255,0.06);box-shadow:0 6px 16px rgba(0,0,0,0.12);transition:transform .12s}
+    .hero-home-btn:hover{transform:translateY(-3px);background:linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))}
+
+    /* page layout */
+    .wrap{max-width:1100px;margin:-40px auto 80px;padding:28px;display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+
+    .panel{
+      background: linear-gradient(180deg,var(--card), #fbfcfc);
+      padding:26px;border-radius:14px;
+      box-shadow:0 10px 30px rgba(8,16,18,0.06);
+      border:1px solid rgba(5,95,113,0.06);
+      color:var(--deep-1)
+    }
+    .panel h2{margin:0 0 12px 0;font-size:1.4rem;color:var(--deep-1)}
+    .panel ol{margin:8px 0 0 18px;line-height:1.6}
+    .panel li{margin:10px 0}
+
+    .callout{
+      display:flex;gap:14px;
+      background: linear-gradient(180deg, rgba(193,255,114,0.08), rgba(198,233,237,0.02));
+      border-left:6px solid var(--lime);
+      padding:14px;border-radius:8px;margin:18px 0;color:var(--deep-1)
+    }
+    .callout strong{display:block;font-weight:800;color:var(--deep-1)}
+
+    /* right column */
+    .side{display:flex;flex-direction:column;gap:16px}
+    .info-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.98), #fff);
+      padding:16px;border-radius:12px;
+      box-shadow:0 8px 22px rgba(8,16,18,0.06);
+      border:1px solid rgba(5,95,113,0.06)
+    }
+    .info-card h3{margin:0 0 6px 0;color:var(--deep-1)}
+    .info-card p{margin:0;color:var(--deep-1);font-size:0.95rem}
+
+    .ribbon{position:relative;overflow:visible}
+    .ribbon .bar{
+      height:56px;border-radius:10px;transform:skewX(-10deg);
+      background: linear-gradient(90deg, rgba(140,140,140,0.06), rgba(59,169,186,0.12));
+      display:flex;align-items:center;padding-left:22px;font-weight:700;
+      color:var(--deep-1)
+    }
+    .ribbon .bar span{transform:skewX(10deg);color:var(--deep-1)}
+
+    .links{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid rgba(5,95,113,0.06)}
+    .btn.primary{background: linear-gradient(180deg,var(--teal), var(--deep-2)); color:#fff}
+    .btn.ghost{background:transparent;color:var(--deep-2);border:1px solid rgba(59,169,186,0.14)}
+
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* small download list */
+    .files{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    .file{
+      padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfbfb);
+      border:1px solid rgba(5,95,113,0.04);
+      font-weight:600;color:var(--deep-1);text-decoration:none
+    }
+
+    .feature{
+      border-radius:8px;padding:12px;background: rgb(233, 243, 246) ;color:var(--deep-1);
+      border:1px solid rgba(5,95,113,0.06)
+    }
+
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr;margin-top:-20px;padding:18px}
+      .hero-inner{flex-direction:column;align-items:flex-start;gap:16px}
+      .hero-actions{align-items:flex-start}
+    }
+    @media (max-width:600px){
+      .hero{clip-path:none;padding:26px}
+      .wrap{margin:12px auto 40px;padding:14px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" role="banner" aria-label="Procurement hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-title">
+          <h1>Procurement &amp; RFQ Submissions</h1>
+        </div>
+        <p class="hero-sub">OBP regularly updates requirements for potential bidders. Follow the steps below to register, qualify and submit via the ProAgrica portal.</p>
+      </div>
+
+      <div class="hero-actions" aria-hidden="false">
+        <a class="hero-home-btn" href="/OBP-TEST/index.html" title="Return to Home">← Return to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+    <article class="panel" aria-labelledby="proc-heading">
+      <h2 id="proc-heading">How to submit an RFQ / Bid</h2>
+
+      <ol>
+        <li>Quantify and qualify your current business profile against all stated requirements.</li>
+        <li>Register a supplier profile on the nominated portal (see contact/links to the right).</li>
+        <li>Follow the submission instructions included with each RFQ brief.</li>
+        <li>Submit company documentation via the ProAgrica online portal — we do not accept faxed or manual submissions (zero‑carbon policy).</li>
+        <li>Await confirmation and further instructions; you will be notified of site inspections or next steps where applicable.</li>
+      </ol>
+
+      <div class="callout" role="note" aria-label="Important information">
+        <div style="font-size:20px;color:var(--lime);font-weight:700">!</div>
+        <div>
+          <strong>Important information</strong>
+          <div style="margin-top:6px">Please contact OBP on <strong>(012) 522 1500</strong> or email <a href="mailto:info@obpvaccines.co.za">info@obpvaccines.co.za</a> for RFQ clarification. OBP reserves the right to award, forgo awarding, or cancel a scope of work at any phase of the submission period. Site inspections may occur where relevant; prospective bidders will be notified.</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px">Checklist & tips</h2>
+      <div class="features" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px">
+        <div class="feature"><strong>Document types</strong><div class="muted" style="margin-top:6px">Registration docs, tax compliance, B-BBEE cert, Comprehensive Personnel Details &amp; Bios, technical specs.</div></div>
+        <div class="feature"><strong>Timelines</strong><div class="muted" style="margin-top:6px">Confirm submission deadlines and allow time for portal upload and validation.</div></div>
+      </div>
+    </article>
+
+    <aside class="side" aria-labelledby="side-info">
+      <div class="info-card" id="side-info">
+        <h3>Contact & Portal</h3>
+        <p>Portal submissions: ProAgrica online portal (use portal link or contact below for access instructions).</p>
+
+        <div class="links" style="margin-top:12px">
+          <a class="btn primary" href="#" title="ProAgrica portal (demo)">Open ProAgrica portal</a>
+          <a class="btn ghost" href="mailto:info@obpvaccines.co.za">Email Procurement</a>
+        </div>
+
+        <div class="files" aria-hidden="false">
+          <a class="file" href="/OBP-TEST/docs/rfq-specification-sample.pdf" download>Download: RFQ specification (sample)</a>
+          <a class="file" href="/OBP-TEST/docs/procurement-guidelines.pdf" download>Download: Procurement guidelines</a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="ribbon" aria-hidden="true">
+          <div class="bar"><span>Submission steps • Register • Upload • Confirm</span></div>
+        </div>
+
+        <h3 style="margin-top:12px">Notes</h3>
+        <p class="muted">We do not accept faxed or manual submissions. For queries call <strong>+27 12 522 1500</strong>. Ensure files are PDF and under portal size limits.</p>
+      </div>
+    </aside>
+  </main>
+
+</body>
+</html>
