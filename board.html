@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OBP Board Members</title>
-  <link rel="stylesheet" href="/OBP-TEST/board.css">
+  <link rel="stylesheet" href="/board.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header class="hero-header">
-  <nav class="hero-nav">
+  <nav class="hero-nav" aria-label="Primary">
     <a href="/OBP-TEST/index.html">Return to Home</a>
     <a href="/OBP-TEST/executive.html">OBP Executive Committee</a>
   </nav>
   <div class="hero-overlay">
     <div class="hero-content">
       <h1>The OBP Board</h1>
-      <p>Evaluation, Performance & Compliance</p>
+      <p>Evaluation, Performance &amp; Compliance</p>
     </div>
   </div>
 </header>
 
-<section class="board-section">
+<section class="board-section" aria-labelledby="meet-board">
   <div class="board-intro">
-    <h2>Meet Our Board</h2>
+    <h2 id="meet-board">Meet Our Board</h2>
   </div>
 
   <!-- Chair Person Centered -->
@@ -34,166 +34,188 @@
       <h3>PROF. PEACEFUL MABETA</h3>
       <p class="title">CHAIR PERSON OF THE BOARD</p>
       <div class="icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal1')">Bio</button>
+        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+        <button type="button" onclick="openModal('modal1')">Bio</button>
       </div>
     </div>
   </div>
 
+  <!-- Grid: three per row on larger screens -->
   <div class="board-grid">
-    <!-- Other Members -->
+    <!-- Row 1 -->
     <div class="board-card">
       <img src="/OBP-TEST/people/Dr Natalie Skeepers.png" alt="DR. NATALIE SKEEPERS" class="board-img" />
       <h3>DR. NATALIE SKEEPERS</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal2')">Bio</button>
+        <button type="button" onclick="openModal('modal2')">Bio</button>
       </div>
     </div>
+
     <div class="board-card">
       <img src="/OBP-TEST/people/ms sinovuyo matai.png" alt="MS SINOVUYO MATAI" class="board-img" />
       <h3>MS SINOVUYO MATAI</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal3')">Bio</button>
+        <button type="button" onclick="openModal('modal3')">Bio</button>
       </div>
     </div>
+
     <div class="board-card">
       <img src="/OBP-TEST/people/ms linda makuleni.png" alt="MS. LINDA MAKULENI" class="board-img" />
       <h3>MS. LINDA MAKULENI</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal4')">Bio</button>
+        <button type="button" onclick="openModal('modal4')">Bio</button>
       </div>
     </div>
+
+    <!-- Row 2 -->
     <div class="board-card">
       <img src="/OBP-TEST/people/dr deenadaylen konar.png" alt="DR. DEENADAYLEN KONAR" class="board-img" />
       <h3>DR. DEENADAYLEN KONAR</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal5')">Bio</button>
+        <button type="button" onclick="openModal('modal5')">Bio</button>
       </div>
     </div>
+
     <div class="board-card">
       <img src="/OBP-TEST/people/mr rajesh mahabeer.png" alt="MR RAJESH MAHABEER" class="board-img" />
       <h3>MR RAJESH MAHABEER</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal6')">Bio</button>
+        <button type="button" onclick="openModal('modal6')">Bio</button>
       </div>
     </div>
+
     <div class="board-card">
       <img src="/OBP-TEST/people/mr mokutule Ngobokoe.png" alt="MR MOKUTULE NGOBOKOE" class="board-img" />
       <h3>MR MOKUTULE NGOBOKOE</h3>
       <p class="title">BOARD MEMBER</p>
       <div class="icons">
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <button onclick="openModal('modal7')">Bio</button>
+        <button type="button" onclick="openModal('modal7')">Bio</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BIOS -->
-<div id="modal1" class="modal">
+<!-- BIOS (unchanged content, IDs match buttons) -->
+<div id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal1-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <button class="close" onclick="closeModal('modal1')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/prof. peaceful Mabeta.png" alt="PROF. PEACEFUL MABETA" />
-    <h3>PROF. PEACEFUL MABETA</h3>
+    <h3 id="modal1-title">PROF. PEACEFUL MABETA</h3>
     <p class="title">CHAIR PERSON OF THE BOARD</p>
     <hr>
     <p><b class="bio">About :</b> <br> Provides strategic leadership and ensures the board’s commitment to governance excellence.</p>
   </div>
 </div>
 
-<div id="modal2" class="modal">
+<div id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal2-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <button class="close" onclick="closeModal('modal2')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/Dr Natalie Skeepers.png" alt="DR. NATALIE SKEEPERS" />
-    <h3>DR. NATALIE SKEEPERS</h3>
+    <h3 id="modal2-title">DR. NATALIE SKEEPERS</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Expert in risk management and policy setting, supporting robust board decisions.</p>
   </div>
 </div>
 
-<div id="modal3" class="modal">
+<div id="modal3" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal3-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal3')">&times;</span>
+    <button class="close" onclick="closeModal('modal3')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/ms sinovuyo matai.png" alt="MS SINOVUYO MATAI" />
-    <h3>MS SINOVUYO MATAI</h3>
+    <h3 id="modal3-title">MS SINOVUYO MATAI</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Focuses on stakeholder accountability and performance monitoring for the board.</p>
   </div>
 </div>
 
-<div id="modal4" class="modal">
+<div id="modal4" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal4-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal4')">&times;</span>
+    <button class="close" onclick="closeModal('modal4')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/ms linda makuleni.png" alt="MS. LINDA MAKULENI" />
-    <h3>MS. LINDA MAKULENI</h3>
+    <h3 id="modal4-title">MS. LINDA MAKULENI</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Drives board development and evaluation, ensuring continuous improvement.</p>
   </div>
 </div>
 
-<div id="modal5" class="modal">
+<div id="modal5" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal5-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal5')">&times;</span>
+    <button class="close" onclick="closeModal('modal5')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/dr deenadaylen konar.png" alt="DR. DEENADAYLEN KONAR" />
-    <h3>DR. DEENADAYLEN KONAR</h3>
+    <h3 id="modal5-title">DR. DEENADAYLEN KONAR</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Provides oversight on major transactions and advocates for organizational growth.</p>
   </div>
 </div>
 
-<div id="modal6" class="modal">
+<div id="modal6" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal6-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal6')">&times;</span>
+    <button class="close" onclick="closeModal('modal6')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/mr rajesh mahabeer.png" alt="MR RAJESH MAHABEER" />
-    <h3>MR RAJESH MAHABEER</h3>
+    <h3 id="modal6-title">MR RAJESH MAHABEER</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Specializes in executive leadership oversight and board advocacy.</p>
   </div>
 </div>
 
-<div id="modal7" class="modal">
+<div id="modal7" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal7-title">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('modal7')">&times;</span>
+    <button class="close" onclick="closeModal('modal7')" aria-label="Close">&times;</button>
     <img src="/OBP-TEST/people/mr mokutule Ngobokoe.png" alt="MR MOKUTULE NGOBOKOE" />
-    <h3>MR MOKUTULE NGOBOKOE</h3>
+    <h3 id="modal7-title">MR MOKUTULE NGOBOKOE</h3>
     <p class="title">BOARD MEMBER</p>
     <hr>
     <p><b class="bio">About :</b> <br> Supports governance and policy setting, ensuring compliance and best practices.</p>
   </div>
 </div>
 
-
 <script>
   function openModal(id) {
-    document.getElementById(id).style.display = "block";
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.style.display = "block";
+    m.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
   }
   function closeModal(id) {
-    document.getElementById(id).style.display = "none";
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.style.display = "none";
+    m.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
   }
-  window.onclick = function(event) {
+  window.addEventListener('click', function(event) {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
       if (event.target === modal) {
-        modal.style.display = "none";
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
       }
     });
-  }
+  });
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') {
+      document.querySelectorAll('.modal').forEach(m => { m.style.display='none'; m.setAttribute('aria-hidden','true'); });
+      document.body.style.overflow = '';
+    }
+  });
 </script>
 
-  </body>
+</body>
 </html>

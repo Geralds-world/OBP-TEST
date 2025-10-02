@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Careers — OBP</title>
+
+  <style>
+    :root {
+      --cyan-1:#8ccdd5;
+      --cyan-2:#c6e9ed;
+      --teal:#3ba9ba;
+      --deep-1:#051418;
+      --deep-2:#055f71;
+      --accent:#799e4a;
+      --card:#ffffff;
+      --muted:#5b6b6b;
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0}
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial;
+      background:#f7fbfb;
+      color:var(--deep-1);
+      line-height:1.6;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--deep-2);
+      color:#fff;
+      padding:10px 20px;
+      text-align:center;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      margin-bottom:12px;
+      color:var(--card);
+    }
+    .hero p {
+      max-width:700px;
+      margin:0 auto;
+      color: var(--card1);
+    }
+
+    /* Layout */
+    .wrap {
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:32px;
+    }
+    .card {
+      background: var(--card);
+      border:1px solid rgba(5,95,113,0.08);
+      border-radius:12px;
+      padding:24px;
+    }
+    h2, h3 {margin-bottom:12px;}
+
+    .lead {margin-bottom:16px; color:#234;}
+
+    /* Values */
+    .values {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+      gap:12px;
+      margin-bottom:20px;
+    }
+    .value {
+      padding:12px;
+      background: var(--cyan-2);
+      border-radius:8px;
+      font-weight:600;
+      text-align:center;
+    }
+
+    /* Jobs */
+    .jobs {display:flex;flex-direction:column;gap:12px;}
+    .job {
+      padding:16px;
+      border-radius:10px;
+      border:1px solid rgba(5,95,113,0.12);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#fff;
+    }
+    .job h4 {margin:0;font-size:1.05rem;}
+    .job .meta {font-size:0.9rem;color:var(--muted);}
+
+    /* Buttons */
+    .btn {
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.2s ease;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color:#fff;
+      border:none;
+    }
+    .btn-primary:hover {background: var(--deep-2);}
+    .btn-accent {
+      background: var(--accent);
+      color:var(--deep-1);
+    }
+
+    /* Side panel */
+    .side h3 {margin-top:0;}
+    .contact {font-weight:700;color:var(--deep-2);}
+
+    footer {
+      text-align:center;
+      padding:20px;
+      font-size:0.9rem;
+      color:var(--muted);
+      border-top:1px solid rgba(5,95,113,0.08);
+      margin-top:40px;
+    }
+
+    @media (max-width:900px) {
+      .wrap {grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Careers at OBP</h1>
+    <p>We’re developing leaders of excellence. Join us in a people-first culture that values growth, integrity, and meaningful careers.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Why Work for Us?</h2>
+      <p class="lead">Our organisation values people-first leadership, respect, integrity, dedication and excellence. Explore our current openings or leave your CV for future opportunities.</p>
+
+      <h3>Our Values</h3>
+      <div class="values">
+        <div class="value">People First</div>
+        <div class="value">Respect</div>
+        <div class="value">Integrity</div>
+        <div class="value">Dedication &amp; Excellence</div>
+      </div>
+
+      <h3>Current Job Openings</h3>
+      <div class="jobs">
+        <div class="job">
+          <div>
+            <h4>Senior Production Manager</h4>
+            <div class="meta">Pretoria — Full time</div>
+          </div>
+        </div>
+        <div class="job">
+          <div>
+            <h4>Quality Assurance Officer</h4>
+            <div class="meta">Onderstepoort — Full time</div>
+          </div>
+
+        </div>
+        <div class="job">
+          <div>
+            <h4>No matching role? Leave your CV</h4>
+            <div class="meta">We keep CVs for future roles</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="leave-cv" style="margin-top:20px;">
+        <h3>Submit Your CV</h3>
+        <p>Please email your CV to <a href="mailto:candidate.support@ci.hr">candidate.support@ci.hr</a> or click the button below to prefill your email.</p>
+        <br>
+        <a class="btn btn-primary" href="mailto:candidate.support@ci.hr?subject=CV%20Submission%20for%20OBP&body=Hello%2C%0A%0AI%20would%20like%20to%20submit%20my%20CV%20for%20future%20opportunities.%0A%0ARegards%2C">Email Your CV</a>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h3>Need Help?</h3>
+        <p>Our support team can assist with registration and application queries.</p>
+        <p class="contact">candidate.support@ci.hr</p>
+      </div>
+
+      <div class="card">
+        <h3>How We Recruit</h3>
+        <p>If your application fits our current requirements, we'll arrange an introductory call. Some roles might include assessments.</p>
+        <br>
+        <p><a class="btn btn-primary" href="/OBP-TEST/careers-apply.html">Open Careers Portal</a></p>
+      </div>
+
+      <div class="card">
+        <img src="/OBP-TEST/images/career.png" alt="width=300" style="width:100%;border-radius:8px;">
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    © Onderstepoort Biological Products — For enquiries call +27 12 522 1500
+  </footer>
+
+</body>
+</html>
