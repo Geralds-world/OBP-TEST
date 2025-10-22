@@ -1,3 +1,4 @@
+/* Base reset and typography */
 * {
   margin: 0;
   padding: 0;
@@ -5,287 +6,157 @@
   font-family: 'Titillium Web', sans-serif;
 }
 
-body {
-  display: flex;
-  height: 100vh;
-  background: #f8f8f8;
-  background-image: url(/OBP-TEST/images/obp\ hero.png);
-  background-size: cover;
+:root{
+  --sidebar-w: 260px;
+  --accent: rgba(33,60,60,0.79);
+  --muted: #68757a;
 }
 
-/* Sidebar */
+/* Page layout: keep content full height but allow sidebar overlay on small screens */
+html,body { height: 100%; }
+body {
+  background: #f8f8f8;
+  min-height: 100vh;
+  display: block; /* main-content handles centering */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Sidebar - desktop default visible */
 .sidebar {
-  width: 260px; /* default open on desktop */
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: var(--sidebar-w);
+  height: calc(100% - 24px);
   background-image: url(/OBP-TEST/images/cornered-stairs\ \(1\).png);
   background-position: center;
   background-size: cover;
-  transition: width 0.3s ease;
-  overflow-x: hidden;
-  margin-left: 5px;
-  margin-top: 10px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border: 6px solid rgba(33, 60, 60, 0.79);
-  border-bottom: none;
+  transition: transform 0.28s ease, box-shadow 0.28s;
+  z-index: 1200;
+  border-radius: 16px;
+  border: 6px solid var(--accent);
+  overflow-y: auto;
+  padding-bottom: 24px;
 }
 
-
-@media (max-width: 600px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    width: 90px;
-    min-width: 70px;
-    margin-left: 0;
-    margin-top: 0;
-    border-radius: 0 0 20px 0;
-    border-width: 0 0 6px 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none; /* Firefox */
-  }
-  .sidebar::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
-
-  .logo {
-    padding: 10px 0 5px 0;
-  }
-  .logo svg,
-  .logo img {
-    width: 48px !important;
-    height: 48px !important;
-    display: block;
-    margin: 0 auto;
-  }
-  .logo h2 {
-    font-size: 12px;
-    margin-top: 4px;
-  }
-
-  .nav a {
-    padding: 10px 8px;
-    font-size: 0.98em;
-  }
-  .nav a span {
-    font-size: 0.95em;
-  }
-
-  .main-content {
-    padding: 10px;
-  }
-}
-
-
-
-.twitter-btn {
-    bottom: 20px;
-    width: 100%;
-}
-
-.twitter-btn a {
-    display: inline-flex;
-    background-color: #1DA1F2; /* Twitter blue */
-    color: white;
-    padding: 10px 15px;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.twitter-btn a i {
-    margin-right: 8px;
-    font-size: 18px;
-}
-
-/* Hover effect */
-.twitter-btn a:hover {
-    background-color: #0d95e8;
-    transform: translateY(-2px);
-}
-
-
+/* Logo area */
 .logo {
   text-align: center;
   padding: 20px;
 }
+.logo svg { display:block; margin: 0 auto; width: 72px; height: 72px; }
 
-.logo img {
-  width: 40px;
-  height: 40px;
-}
-
-.logo h2 {
-  margin-top: 10px;
-  font-size: 18px;
-  opacity: 1; /* always visible on desktop */
-}
-
-.nav {
-  list-style: none;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.nav li {
-  position: relative;
-  width: 100%;
-}
-
+/* nav */
+.nav { list-style: none; margin-top: 20px; padding-left: 0; }
+.nav li { position: relative; }
 .nav a {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 12px 18px;
   color: #ffffff;
   text-decoration: none;
   transition: background 0.2s;
 }
+.nav a i { font-size: 20px; min-width: 36px; color: white; }
+.nav a span { margin-left: 6px; font-weight: 600; color: white; }
 
-.nav a i {
-  font-size: 20px;
-  min-width: 40px;
-  color: white;
-}
+/* dropdown */
+.dropdown-menu { list-style:none; display:none; padding-left: 40px; margin-top:6px; }
+.dropdown.active .dropdown-menu { display:block; background: rgba(63,61,61,0.94); margin-left: 10px; border-radius:6px; padding:8px 10px; }
+.dropdown-menu li a { color: white; padding:6px 0; display:block; font-size: 14px; }
 
-.nav a span {
-  opacity: 1; /* always visible on desktop */
-}
+/* Hover states */
+.nav a:hover { background: rgba(26,78,50,0.9); border-top-right-radius:6px; border-bottom-right-radius:6px; }
 
-.nav a:hover {
-  background: rgb(26, 78, 50);
-  color: white;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.dropdown-menu {
-  list-style: none;
-  display: none;
-  padding-left: 40px;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-    background-color: rgba(63, 61, 61, 0.938);
-    margin-left: 10px;
-}
-
-.dropdown-menu li a {
-  font-size: 14px;
-  color: white;
-}
-
-.dropdown-menu li a:hover {
-  color: white;
+/* Sidebar backdrop for mobile overlay */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100;
+  opacity: 1;
 }
 
 /* Main content */
 .main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
+  margin-left: calc(var(--sidebar-w) + 20px);
   padding: 20px;
-  margin: 0 auto;
+  transition: margin-left 0.28s ease;
 }
 
-header h1 {
-  font-size: 3.5em;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  margin-bottom: 10px;
-  position: relative;
-  isolation: isolate;
-  text-decoration: dotted underline;
-  text-underline-offset: 15px;
-  text-decoration-color: aqua;
-}
+/* Header title treatments */
+.site-header h1 { font-size: 2.2rem; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.18); }
 
-header h1::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 42%,
-    rgba(0, 255, 120, 0.00) 43%,
-    rgba(0, 255, 120, 0.85) 50%,
-    rgba(0, 255, 120, 0.00) 57%,
-    transparent 58%,
-    transparent 100%
-  );
-  background-size: 220% 100%;
-  background-position: -150% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 120, 0.35));
-  animation: obp-sweep 12s ease-in-out infinite;
-  opacity: 0;
-}
+/* twitter button */
+.twitter-btn a { display:inline-flex; background:#1DA1F2; color:white; padding:10px 15px; border-radius:12px; text-decoration:none; font-weight:600; }
+.twitter-btn a:hover { background:#0d95e8; transform: translateY(-2px); }
 
-@keyframes obp-sweep {
-  0%, 72%   { background-position: -150% 0; opacity: 0; }
-  78%       { opacity: 1; }
-  100%      { background-position: 150% 0;  opacity: 0; }
-}
-
-header p {
-  font-size: 16px;
-  margin-top: 5px;
-  color: #444;
-}
-
-.hero img {
-  width: 100%;
-  max-width: 900px;
-  max-height: 800px;
-  object-fit: cover;
-  margin-top: 20px;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-  border: 4px solid rgb(255, 255, 255);
-}
-
-/* Responsive: Mobile view overlays sidebar */
+/* -- MOBILE / SMALL SCREENS: make sidebar hidden by default and toggleable with hamburger -- */
 @media (max-width: 992px) {
+  /* Hide the big sidebar off-canvas */
   .sidebar {
-    width: 120px; /* collapsed width */
-    position: fixed;
-    top: 0;
+    transform: translateX(-120%); /* hidden */
     left: 0;
+    top: 0;
+    width: var(--sidebar-w);
     height: 100%;
-    z-index: 1000; /* above main content */
-    margin-left: 0;
-    margin-top: 0;
+    border-radius: 0 0 20px 0;
+    margin: 0;
+    padding-bottom: 80px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+  /* When open, reveal */
+  .sidebar.open {
+    transform: translateX(0);
   }
 
-  .logo h2,
-  .nav a span {
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .sidebar:hover {
-    width: 260px; /* expand on hover */
-  }
-
-  .sidebar:hover .logo h2,
-  .sidebar:hover a span {
-    opacity: 1;
-  }
-
-  /* main content stays centered, no margin shift */
+  /* Put main-content full width (no left margin) */
   .main-content {
     margin-left: 0;
+    padding: 18px;
   }
+
+  /* Small logo size */
+  .logo svg { width: 48px; height: 48px; }
+
+  /* Hide long nav text by default to avoid overflow; shown when sidebar open */
+  .nav a span { display: inline-block; }
 }
+
+/* Sidebar toggle (hamburger) button - visible on small screens */
+.sidebar-toggle {
+  display: none; /* desktop hidden */
+}
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: inline-flex;
+    position: fixed;
+    left: 12px;
+    top: 12px;
+    z-index: 1300;
+    background: linear-gradient(180deg,#ffffff,#eaf9fa);
+    border: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 26px rgba(2,36,39,0.12);
+    color: var(--accent);
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .sidebar-toggle:focus { outline: 3px solid rgba(140,205,213,0.28); }
+  .sidebar-toggle i { width: 18px; height: 18px; display: block; }
+
+  /* hide the large logo on mobile main view to avoid overlap */
+  .logo h2, .logo img { display: none; }
+}
+
+/* accessibility helper */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* utility: when sidebar open, prevent body scroll (applies while overlay exists) */
+body.sidebar-open { overflow: hidden; }
