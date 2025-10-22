@@ -20,7 +20,7 @@ body {
   display: block; /* main-content handles centering */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-    background-image: url(/OBP-TEST/images/obp\ hero.png);
+    background-image: url(/images/obp\ hero.png);
 }
 
 /* Sidebar - desktop default visible */
@@ -87,7 +87,7 @@ body {
 }
 
 /* Header title treatments */
-.site-header h1 { font-size: 2.2rem; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.18); }
+.site-header h1 { font-size: 2.2rem; color: #ffffff; text-shadow: 0 2px 6px rgb(2, 69, 3); }
 
 /* twitter button */
 .twitter-btn a { display:inline-flex; background:#1DA1F2; color:white; padding:10px 15px; border-radius:12px; text-decoration:none; font-weight:600; }

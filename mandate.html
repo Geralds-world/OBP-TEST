@@ -15,6 +15,9 @@
       --glass: rgba(255,255,255,0.06);
       --soft: rgba(255,255,255,0.06);
       --text: #e8f6f7;
+      --deep-2:#055f71;
+      --teal:#3ba9ba;
+      --cyan-1:#8ccdd5;
     }
 
     html,body{height:100%;margin:0;font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
@@ -29,9 +32,7 @@
   justify-content: center;
   padding: 48px 20px;
   background-color: #051418; /* fallback base colour */
-  background-image:
-    linear-gradient(120deg, rgba(67, 174, 174, 0.904), rgba(11, 102, 102, 0.82)),
-    url('');
+  background:linear-gradient(135deg,var(--deep-2) 0%, var(--teal) 60%, var(--cyan-1) 100%);
   background-position: center;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%); /* keeps the slanted bottom */
@@ -247,7 +248,7 @@
     <div class="hero-inner">
       <div class="hero-title">
         <h1>ABOUT <br> <br> Our Mandate</h1>
-        <p class="hero-sub">We develop, manufacture and distribute veterinary vaccines to protect animal health, livelihoods and food security.</p>
+        <p class="hero-sub">We Develop, Manufacture and Distribute Veterinary Vaccines for the Protection of Animal Health, Livelihoods & Food Security in Our Communities</p>
       </div>
 
       <!-- new: actions area with Return to Home button -->

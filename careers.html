@@ -15,6 +15,7 @@
       --accent:#799e4a;
       --card:#ffffff;
       --muted:#5b6b6b;
+      
     }
 
     * {box-sizing:border-box;margin:0;padding:0}
@@ -27,21 +28,48 @@
 
     /* Hero */
     .hero {
-      background: var(--deep-2);
+  background:linear-gradient(135deg,var(--deep-2) 0%, var(--teal) 60%, var(--cyan-1) 100%);
       color:#fff;
-      padding:10px 20px;
-      text-align:center;
+      padding:18px 20px 26px;
     }
+    /* new: layout inside hero so we can add return button */
+    .hero-inner{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .hero-content { text-align:center; flex:1; }
     .hero h1 {
       font-size: clamp(26px, 4vw, 40px);
-      margin-bottom:12px;
+      margin-bottom:8px;
       color:var(--card);
     }
     .hero p {
       max-width:700px;
       margin:0 auto;
-      color: var(--card1);
+      color: rgba(255,255,255,0.9);
+      font-size:0.95rem;
     }
+
+    /* actions in hero */
+    .hero-actions { flex:0 0 auto; display:flex; gap:10px; align-items:center; }
+    .btn {
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.2s ease;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color:#fff;
+      border:none;
+    }
+    .btn-primary:hover { background: var(--deep-2); transform: translateY(-2px); }
 
     /* Layout */
     .wrap {
@@ -91,26 +119,6 @@
     .job h4 {margin:0;font-size:1.05rem;}
     .job .meta {font-size:0.9rem;color:var(--muted);}
 
-    /* Buttons */
-    .btn {
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.2s ease;
-    }
-    .btn-primary {
-      background: var(--teal);
-      color:#fff;
-      border:none;
-    }
-    .btn-primary:hover {background: var(--deep-2);}
-    .btn-accent {
-      background: var(--accent);
-      color:var(--deep-1);
-    }
-
     /* Side panel */
     .side h3 {margin-top:0;}
     .contact {font-weight:700;color:var(--deep-2);}
@@ -126,14 +134,25 @@
 
     @media (max-width:900px) {
       .wrap {grid-template-columns:1fr;}
+      .hero-inner {flex-direction:column; text-align:center;}
+      .hero-actions { order: 3; margin-top:12px; }
     }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <h1>Careers at OBP</h1>
-    <p>We’re developing leaders of excellence. Join us in a people-first culture that values growth, integrity, and meaningful careers.</p>
+    <div class="hero-inner">
+      <div class="hero-content" role="heading" aria-level="1">
+        <h1>Careers at OBP</h1>
+        <p>We Develop Aspiring Leaders of Excellence. Join Us, and Experience a People-First Culture that Values Growth, Integrity &amp; Accountability</p>
+      </div>
+
+      <div class="hero-actions" aria-label="Header actions">
+        <!-- Return to home button -->
+        <a class="btn btn-primary" href="/OBP-TEST/index.html" title="Return to home">← Return to Home</a>
+      </div>
+    </div>
   </header>
 
   <main class="wrap">
@@ -195,7 +214,7 @@
       </div>
 
       <div class="card">
-        <img src="/OBP-TEST/images/career.png" alt="width=300" style="width:100%;border-radius:8px;">
+        <img src="/OBP-TEST/images/career.png" alt="careers" style="width:100%;border-radius:8px;">
       </div>
     </aside>
   </main>
