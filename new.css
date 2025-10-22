@@ -20,7 +20,7 @@ body {
   display: block; /* main-content handles centering */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-    background-image: url(/images/obp\ hero.png);
+    background-image: url(/OBP-TEST/images/obp\ hero.png);
 }
 
 /* Sidebar - desktop default visible */
